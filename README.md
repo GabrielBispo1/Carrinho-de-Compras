@@ -6,11 +6,11 @@
 
 # Funcionalidades do projeto
 
-- `Funcionalidade 1`:
-- `Funcionalidade 2`:
-- `Funcionalidade 3`:
-- `Funcionalidade 4`:
-- `Funcionalidade 5`:
+- `Funcionalidade 1`: Adicionar e excluir itens  
+- `Funcionalidade 2`: Cadastrar cliente
+- `Funcionalidade 3`: Realizar pedido
+- `Funcionalidade 4`: Cadastrar forma de pagamento
+- `Funcionalidade 5`: Calcular frete 
 
 # Tecnologias utilizadas
 
