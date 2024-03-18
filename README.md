@@ -6,7 +6,7 @@
 
 # Funcionalidades do projeto
 
-- `Funcionalidade 1`: Adicionar e excluir itens  
+- `Funcionalidade 1`: Adicionar e excluir itens. 
 - `Funcionalidade 2`: Cadastrar cliente
 - `Funcionalidade 3`: Realizar pedido
 - `Funcionalidade 4`: Cadastrar forma de pagamento
