@@ -12,6 +12,9 @@
 - `Funcionalidade 4` `Cadastrar forma de pagamento` : É necessário que o sistema consiga cadastrar diferentes formas de pagamento como cartão de crédito, débito, boleto bancário ou pix, para que o usuário possa escolher a melhor forma para realizar a compra.
 - `Funcionalidade 5` `Calcular frete` : O sistema irá somar o frete que será fixo ao valor da soma dos produtos do usuário, mostrando os valor do frete e o valor final da compra com o acréscimo do frete.
 
+# Links:
+https://dbdiagram.io/d/Diagrama-Login%2FPerfil-66017088ae072629cee38df4
+
 # Tecnologias utilizadas
 
 <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="nodejs" width="35" height="40"/> <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="javascript" width="35" height="40" />
