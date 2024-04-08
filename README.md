@@ -10,7 +10,7 @@
 - `Funcionalidade 2` `Cadastrar cliente` : O sistema precisa cadastrar o cliente, pois sem o cadastro não será possível salvar o carrinho de compras com os produtos escolhidos pelo usuário. Para realizar o cadastro o usuário precisa de um e-mail válido e único, além de uma senha que siga os requisitos para torna-la mais segura: Ser longa: de preferência uma frase com letras, números e símbolos. Complexa: que tenha sentido apenas para você e não seja óbvia. Prática: você precisa se lembrar dela com facilidade.
 - `Funcionalidade 3` `Fechar pedido` : Sistema irá somar o valor de todos os itens que estão no carrinho e mostrar ao usuário quais foram os produtos que ele selecionou e o valor final da compra. 
 - `Funcionalidade 4` `Cadastrar forma de pagamento` : É necessário que o sistema consiga cadastrar diferentes formas de pagamento como cartão de crédito, débito, boleto bancário ou pix, para que o usuário possa escolher a melhor forma para realizar a compra.
-- `Funcionalidade 5` `Calcular frete` : O sistema irá somar o frete que será fixo ao valor da soma dos produtos do usuário, mostrando os valor do frete e o valor final da compra com o acréscimo do frete.
+- `Funcionalidade 5` `Calcular frete` : O sistema irá somar o frete que será integrado à API dos correios e o valor da soma dos produtos do usuário, mostrando o valor do frete e o preço final da compra.
 
 # Links:
 https://dbdiagram.io/d/Diagrama-Login%2FPerfil-66017088ae072629cee38df4
