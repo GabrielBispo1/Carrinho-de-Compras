@@ -51,7 +51,7 @@ CREATE TABLE Item (
   id_produto INTEGER UNSIGNED NOT NULL,
   valor DOUBLE NULL,
   qtdItem INTEGER NULL,
-  Primary key (id_ticket, id_produto),
+  PRIMARY KEY (id_ticket, id_produto),
   FOREIGN KEY (id_ticket)
 	REFERENCES TicketCompra(id_ticket),
   FOREIGN KEY (id_produto)
@@ -63,6 +63,7 @@ CREATE TABLE Frete (
   id_endereco INTEGER UNSIGNED NOT NULL,
   valor DOUBLE,
   CEP_remetente VARCHAR(9),
+  PRIMARY KEY (id_ticket, id_endereco),
   FOREIGN KEY (id_ticket)
 	REFERENCES TicketCompra(id_ticket),
   FOREIGN KEY (id_endereco)
