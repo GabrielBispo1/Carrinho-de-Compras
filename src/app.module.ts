@@ -4,11 +4,24 @@ import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { ProdutoModule } from './produto/produto.module';
 import { ProdutoController } from './produto/controller/produto.controller';
+import { PerfilModule } from './perfil/perfil.module';
+import { LoginModule } from './login/login.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { PerfilService } from './perfil/service/perfil.service';
+import { LoginService } from './login/service/login.service';
+import { Login } from './login/entity/login.entity';
+import { Perfil } from './perfil/entity/perfil.entity';
+import { ItemModule } from './item/item.module';
+import { PerfilController } from './perfil/controller/perfil.controller';
+import { LoginController } from './login/controller/login.controller';
+import { ItemController } from './item/controller/item.controller';
+import { ItemService } from './item/service/item.service';
 //import { FreteModule } from './frete/frete.module';
 
+
 @Module({
-  imports: [DatabaseModule, ProdutoModule],
-  controllers: [AppController, ProdutoController],
-  providers: [AppService],
+  imports: [TypeOrmModule.forFeature([Login, Perfil]), DatabaseModule, ProdutoModule, PerfilModule, LoginModule, ItemModule],
+  controllers: [AppController, ProdutoController, PerfilController, LoginController, ItemController],
+  providers: [AppService, PerfilService, LoginService, ItemService],
 })
 export class AppModule {}
