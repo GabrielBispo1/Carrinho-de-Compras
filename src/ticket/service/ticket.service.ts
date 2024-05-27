@@ -30,7 +30,7 @@ export class TicketService {
   async create(createTicketDto: CreateTicketDto): Promise<Ticket> {
     try {
       return await this.ticketRepository.save(
-        this.ticketRepository.create(CreateTicketDto),
+        this.ticketRepository.create(createTicketDto),
       );
     } catch (error) {
       if (error.code === 'ER_DUP_ENTRY') {

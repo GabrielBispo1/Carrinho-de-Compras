@@ -15,9 +15,9 @@ export class ItemService {
     return await this.itemRepository.find({ relations: ['produto', 'ticket'] }); //talvez criar um para cada, tanto produto e ticket
     }
 
-  async findOne(id: number): Promise<Item> {
+  async findOne(id: number,id_ticket:number): Promise<Item> {
     const item = await this.itemRepository.findOne({
-      where: { id_produto: id }, //mesma coisa, para usar o id_produto e o id_ticket
+      where: { id_produto: id, id_ticket: id_ticket}, //mesma coisa, para usar o id_produto e o id_ticket
       relations: ['produto'],
     });
 

@@ -1,6 +1,8 @@
 export class ItemEntity {}
 
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Produto } from 'src/produto/entity/produto.entity';
+import { Ticket } from 'src/ticket/entity/ticket.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
 @Entity('item')
 export class Item {
@@ -14,9 +16,9 @@ export class Item {
     @Column({precision: 2 })
     qtdItem: number;
 
-    @ManytoOne(() => Produto, (produto) => produto.itens)
+    @ManyToOne(() => Produto, (produto) => produto.item)
     produto: Produto[];
     
-    @ManyToOne(() => Ticket, (ticket) => ticket.itens)
+    @ManyToOne(() => Ticket, (ticket) => ticket.item)
     ticket: Ticket[];
 }

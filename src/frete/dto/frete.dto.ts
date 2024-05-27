@@ -1,4 +1,4 @@
-import { IsNumber, IsString, Length } from 'class-validator';
+import { IsInt, IsNumber, IsString, Length } from 'class-validator';
 import { PartialType } from '@nestjs/mapped-types';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -13,6 +13,14 @@ export class CreateFreteDto {
   @ApiProperty({ description: 'Valor do frete' })
   @IsNumber()
   valor: number;
+
+  @ApiProperty({ description: 'ID do Ticket' })
+  @IsInt()
+  ticketId: number;
+
+  @ApiProperty({ description: 'ID do endereço' })
+  @IsInt()
+  enderecoID: number;
 }
 
 export class UpdateFreteDto extends PartialType(CreateFreteDto) {}

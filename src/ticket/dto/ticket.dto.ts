@@ -5,10 +5,10 @@ export class TicketDto {}
 
 export class CreateTicketDto {
 
-    @IsInt({ description: 'ID do login' })
+    @IsInt()
     id_Login: number;
 
-    @IsInt({ description: 'Valor total do ticket da compra' })
+    @IsInt()
     @Length(10,2)
     total: number;
 }
