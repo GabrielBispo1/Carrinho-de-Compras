@@ -17,7 +17,7 @@ export class PerfilService {
 
   async findOne(id: number): Promise<Perfil> {
     const perfil = await this.perfilRepository.findOne({
-      where: { id_endereco: id },
+      where: { id_login: id },
       relations: ['perfis'],
     });
 

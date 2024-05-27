@@ -7,7 +7,6 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 export class Perfil {
   @PrimaryGeneratedColumn()
   id_login: number;
-  id_endereco: number;
 
   @Column({ length: 40 })
   nome: string;
