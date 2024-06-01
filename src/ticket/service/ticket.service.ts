@@ -1,4 +1,3 @@
-//?
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -13,18 +12,19 @@ export class TicketService {
   ) {}
 
   async findAll(): Promise<Ticket[]> {
-    return await this.ticketRepository.find({ relations: ['tickets'] });
+    return await this.ticketRepository.find(); // sem o "{ relations: ['ticket'] }" - para funcionar o get
   }
 
   async findOne(id: number): Promise<Ticket> {
-    const user = await this.ticketRepository.findOne({
+    const ticket = await this.ticketRepository.findOne({
       where: { id_ticket: id },
+      // removi o "relations: ['ticket']," para funcionar o get id
     });
 
-    if (!Ticket) {
+    if (!ticket) {
       throw new HttpException(`Ticket não encontrado.`, HttpStatus.NOT_FOUND);
     }
-    return user;
+    return ticket;
   }
 
   async create(createTicketDto: CreateTicketDto): Promise<Ticket> {

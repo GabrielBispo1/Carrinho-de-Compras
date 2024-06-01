@@ -15,9 +15,8 @@ import {
   @ApiTags('login')
   export class LoginController {
     constructor(private readonly loginService: LoginService) {}
-  
     @Get()
-    @ApiOperation({ summary: 'Selecionar todos os usuário registrado' })
+    @ApiOperation({ summary: 'Selecionar todos os usuários registrados' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     async findAll(): Promise<any[]> {
       return this.loginService.findAll();

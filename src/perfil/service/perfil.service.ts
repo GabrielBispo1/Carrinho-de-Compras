@@ -12,13 +12,13 @@ export class PerfilService {
   ) {}
 
   async findAll(): Promise<Perfil[]> {
-    return await this.perfilRepository.find({ relations: ['perfis'] });
+    return await this.perfilRepository.find(); // { relations: ['perfil'] }
   }
 
   async findOne(id: number): Promise<Perfil> {
     const perfil = await this.perfilRepository.findOne({
       where: { id_login: id },
-      relations: ['perfis'],
+      // removi o "relations: ['perfil'],"
     });
 
     if (!perfil) {

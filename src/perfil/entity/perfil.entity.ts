@@ -1,9 +1,8 @@
 export class PerfilEntity {}
-import { Frete } from 'src/frete/entity/frete.entity';
 import { Login } from 'src/login/entity/login.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
-@Entity('perfil')
+@Entity('Perfil') // // com letra maíuscula para o POST
 export class Perfil {
   @PrimaryGeneratedColumn()
   id_login: number;
@@ -41,9 +40,6 @@ export class Perfil {
   @Column({ length: 12 })
   telefone: string;
 
-  @ManyToOne(() => Login, (login) => login.perfis)
+  @ManyToOne(() => Login, (login) => login.perfil)
   login: Login[];
-
-  @ManyToOne(() => Frete, (frete) => frete.perfis)
-  frete: Frete[];
 }

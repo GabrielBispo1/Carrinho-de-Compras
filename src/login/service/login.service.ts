@@ -13,13 +13,13 @@ export class LoginService {
   ) {}
 
   async findAll(): Promise<Login[]> {
-    return await this.loginRepository.find({ relations: ['login'] });
+    return await this.loginRepository.find(); // sem o "{ relations: ['login'] }" - para funcionar o get
   }
 
   async findOne(id: number): Promise<Login> {
     const login = await this.loginRepository.findOne({
       where: { id_login: id },
-      relations: ['login'],
+      // removi o "relations: ['login']," - para funcionar o get id
     });
 
     if (!login) {
@@ -37,8 +37,8 @@ export class LoginService {
         return await this.loginRepository.save(
             this.loginRepository.create(createLoginDto),
       );
-    } catch (error:any) {
-      if (error.code === 'ER_DUP_ENTRY') {  //error.code, dando erro
+    } catch (error) {
+      if (error.code === 'ER_DUP_ENTRY') {  //error.code, dando erro - se colocar error:any funciona
         throw new HttpException('Email já registrado.', HttpStatus.BAD_REQUEST);
       } else {
         throw new HttpException(

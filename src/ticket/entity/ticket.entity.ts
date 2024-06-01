@@ -1,5 +1,4 @@
-export class TicketEntity {}
-import { Frete } from 'src/frete/entity/frete.entity';
+// export class TicketEntity {}
 import { Item } from 'src/item/entity/item.entity';
 import { Login } from 'src/login/entity/login.entity';
 import {
@@ -7,26 +6,29 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  OneToOne,
   OneToMany,
 } from 'typeorm';
 
-@Entity('Ticket')
+@Entity('Ticket') // com letra maíuscula para o POST funcionar
 export class Ticket {
   @PrimaryGeneratedColumn()
   id_ticket: number;
-
-  @Column()
   id_login: number;
 
-  @Column()
+  @Column({type: 'decimal', precision: 8, scale: 2 })
   total: number;
+
+  @Column({ default: 10 })
+  frete: number;
+
+  @Column({ length: 40 })
+  endereco: string;
+
+  @Column({ length: 9 })
+  CEP_remetente: string;
 
   @ManyToOne(() => Login, (login) => login.ticket)
   login: Login[];
-
-  @OneToOne(() => Frete, (frete) => frete.ticket)
-  frete: Frete[];
 
   @OneToMany(() => Item, (item) => item.ticket)
   item: Item[];

@@ -1,4 +1,3 @@
-//?
 import {
     Body,
     Controller,
@@ -24,8 +23,6 @@ import {
     }
   
     @Get(':id')
-    @ApiOperation({ summary: 'Selecionar um ticket' })
-    @ApiResponse({ status: 403, description: 'Forbidden.' })
     @ApiOperation({ summary: 'Selecionar um ticket' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     async findOne(@Param('id') id: number): Promise<any> {

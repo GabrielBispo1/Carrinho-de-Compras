@@ -16,7 +16,7 @@ import { ProdutoService } from '../service/produto.service';
 export class ProdutoController {
   constructor(private readonly produtoService: ProdutoService) {}
   @Get()
-  @ApiOperation({ summary: 'Selecionar todos os produto' })
+  @ApiOperation({ summary: 'Selecionar todos os produtos' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   async findAll(): Promise<any[]> {
     return this.produtoService.findAll();

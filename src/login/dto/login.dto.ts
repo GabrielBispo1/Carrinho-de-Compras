@@ -1,9 +1,8 @@
-export class LoginDto { }
-
 import { IsEmail, IsString, Length, Matches } from 'class-validator';
 import { PartialType } from '@nestjs/mapped-types';
 import { ApiProperty } from '@nestjs/swagger';
 
+export class LoginDto {}
 
 export class CreateLoginDto {
   @ApiProperty({ description: 'Email do usuário' })
@@ -13,7 +12,7 @@ export class CreateLoginDto {
 
   @ApiProperty({ description: 'Senha do usuário' })
   @IsString()
-  @Matches(/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[\W_]).{8,}$/, {
+  @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/, {
     message:
       'a senha deve ter pelo menos 8 caracteres, incluindo uma pelo menos: uma letra maiúscula, uma letra minúscula, um número e um caractere especial',
   })

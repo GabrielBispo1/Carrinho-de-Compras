@@ -16,7 +16,6 @@ import { PerfilController } from './perfil/controller/perfil.controller';
 import { LoginController } from './login/controller/login.controller';
 import { ItemController } from './item/controller/item.controller';
 import { ItemService } from './item/service/item.service';
-import { FreteModule } from './frete/frete.module';
 import { AuthModule } from './auth/auth.module';
 import { Item } from './item/entity/item.entity';
 import { Ticket } from './ticket/entity/ticket.entity';
@@ -26,7 +25,7 @@ import { TicketModule } from './ticket/ticket.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Login, Perfil, Item, Ticket, Produto]),
-    DatabaseModule, ProdutoModule, PerfilModule, LoginModule, ItemModule, AuthModule, TicketModule, FreteModule],
+    DatabaseModule, ProdutoModule, PerfilModule, LoginModule, ItemModule, AuthModule, TicketModule],
   controllers: [AppController, ProdutoController, PerfilController, LoginController, ItemController],
   providers: [AppService, PerfilService, LoginService, ItemService],
 })
