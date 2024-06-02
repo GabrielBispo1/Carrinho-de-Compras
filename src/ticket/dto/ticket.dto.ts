@@ -13,6 +13,21 @@ export class CreateTicketDto {
     @IsNumber()
     frete: number;
 
+    @ApiProperty({ description: 'Cartão de crédito da compra ' })
+    @IsString()
+    @Length(13,16)
+    cartao_credito: string;
+
+    @ApiProperty({ description: 'Cartão de débito da compra' })
+    @IsString()
+    @Length(13,19)
+    cartao_debito: string;
+
+    @ApiProperty({ description: 'Boleto da compra' })
+    @IsString()
+    @Length(48)
+    boleto: string;
+
     @ApiProperty({ description: 'endereco do remetente' })
     @IsString()
     @Length(40)

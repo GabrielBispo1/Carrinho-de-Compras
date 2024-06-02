@@ -21,6 +21,16 @@ export class Ticket {
   @Column({ default: 10 })
   frete: number;
 
+  //?
+  @Column({ length: 16 })
+  cartao_credito: string;
+
+  @Column({ length: 19 })
+  cartao_debito: string;
+
+  @Column({ length: 48 })
+  boleto: string;
+
   @Column({ length: 40 })
   endereco: string;
 
