@@ -9,15 +9,15 @@ export class ItemService {
   constructor(
     @InjectRepository(Item)
     private itemRepository: Repository<Item>,
-  ) {}
+  ) { }
 
   async findAll(): Promise<Item[]> {
     return await this.itemRepository.find({ relations: ['produto', 'ticket'] }); //talvez criar um para cada, tanto produto e ticket
-    }
+  }
 
-  async findOne(id: number,id_ticket:number): Promise<Item> {
+  async findOne(id: number, id_ticket: number): Promise<Item> {
     const item = await this.itemRepository.findOne({
-      where: { id_produto: id, id_ticket: id_ticket}, //mesma coisa, para usar o id_produto e o id_ticket
+      where: { produtoIdProduto: id, ticketIdTicket: id_ticket }, //mesma coisa, para usar o id_produto e o id_ticket
       relations: ['produto'],
     });
 
@@ -29,15 +29,16 @@ export class ItemService {
 
   async create(createItemDto: CreateItemDto): Promise<Item> {
     try {
-      return await this.itemRepository.save(
-        this.itemRepository.create(createItemDto),
-      );
-    } catch (error:any) {
+      console.log('batatinha frita', createItemDto)
+      const item = await this.itemRepository.create(createItemDto);
+      console.log('frita', item)
+      return await this.itemRepository.save(createItemDto);
+    } catch (error: any) {
       if (error.code === 'ER_DUP_ENTRY') {  //problema do error.code resolvido, adicionado o :any no catch(error:any)
         throw new HttpException('Item já registrado.', HttpStatus.BAD_REQUEST);
       } else {
         throw new HttpException(
-          'Erro ao criar o registro. Tente novamente mais tarde.',
+          'Erro ao criar o registro. Tente novamente mais tarde.' + error,
           HttpStatus.INTERNAL_SERVER_ERROR,
         );
       }

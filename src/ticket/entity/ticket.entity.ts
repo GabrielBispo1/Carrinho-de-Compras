@@ -9,7 +9,7 @@ import {
   OneToMany,
 } from 'typeorm';
 
-@Entity('Ticket') // com letra maíuscula para o POST funcionar
+@Entity('ticket') // com letra maíuscula para o POST funcionar
 export class Ticket {
   @PrimaryGeneratedColumn()
   id_ticket: number;
@@ -38,7 +38,7 @@ export class Ticket {
   CEP_remetente: string;
 
   @ManyToOne(() => Login, (login) => login.ticket)
-  login: Login[];
+  login: Login;
 
   @OneToMany(() => Item, (item) => item.ticket)
   item: Item[];

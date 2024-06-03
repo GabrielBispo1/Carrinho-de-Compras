@@ -6,11 +6,14 @@ import {
     Param,
     Post,
     Put,
+    UseGuards,
   } from '@nestjs/common';
   import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
   import { CreatePerfilDto, UpdatePerfilDto } from '../dto/perfil.dto';
   import { PerfilService } from '../service/perfil.service';
   
+  @UseGuards(JwtAuthGuard)
   @Controller('perfil')
   @ApiTags('perfil')
   export class PerfilController {

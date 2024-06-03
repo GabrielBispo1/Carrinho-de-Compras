@@ -6,11 +6,14 @@ import {
     Param,
     Post,
     Put,
+    UseGuards,
   } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
   import { CreateItemDto, UpdateItemDto } from '../dto/item.dto';
   import { ItemService } from '../service/item.service';
 
+  @UseGuards(JwtAuthGuard)
   @Controller('item')
   @ApiTags('item')
   export class ItemController {
@@ -28,13 +31,16 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     async findOne(@Param('id') id: number,@Param('id_ticket') id_ticket: number): Promise<any> {
       return this.itemService.findOne(id,id_ticket);
+      
     }
   
     @Post()
     @ApiOperation({ summary: 'Criar um novo item' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     async create(@Body() createItemDto: CreateItemDto): Promise<any> {
-      return this.itemService.create(createItemDto); 
+      console.log('batata',createItemDto)
+      return await this.itemService.create(createItemDto);
+      
     }
   
     @Put(':id')

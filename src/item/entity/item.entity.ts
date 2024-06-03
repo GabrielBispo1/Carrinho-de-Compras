@@ -2,13 +2,15 @@ export class ItemEntity {}
 
 import { Produto } from 'src/produto/entity/produto.entity';
 import { Ticket } from 'src/ticket/entity/ticket.entity';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, PrimaryColumn, JoinColumn } from 'typeorm';
 
 @Entity('item')
 export class Item {
-    @PrimaryGeneratedColumn()
-    id_ticket: number;
-    id_produto: number;
+    @PrimaryColumn()
+    ticketIdTicket: number;
+
+    @PrimaryColumn()
+    produtoIdProduto: number;
 
     @Column({  type: 'decimal', precision: 7, scale: 2 })
     valor: number;
@@ -20,5 +22,5 @@ export class Item {
     produto: Produto[];
     
     @ManyToOne(() => Ticket, (ticket) => ticket.item)
-    ticket: Ticket[];
+    ticket: Ticket;
 }

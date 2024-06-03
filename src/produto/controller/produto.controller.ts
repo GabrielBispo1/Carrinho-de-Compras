@@ -6,11 +6,14 @@ import {
   Post,
   Param,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
 import { CreateProdutoDto, UpdateProdutoDto } from '../dto/produto.dto';
 import { ProdutoService } from '../service/produto.service';
 
+@UseGuards(JwtAuthGuard)
 @Controller('produto')
 @ApiTags('produto')
 export class ProdutoController {
