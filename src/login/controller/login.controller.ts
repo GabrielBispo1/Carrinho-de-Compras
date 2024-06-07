@@ -13,7 +13,6 @@ import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
   import { CreateLoginDto, UpdateLoginDto } from '../dto/login.dto';
   import { LoginService } from '../service/login.service';
   
-  @UseGuards(JwtAuthGuard)
   @Controller('login')
   @ApiTags('login')
   export class LoginController {
