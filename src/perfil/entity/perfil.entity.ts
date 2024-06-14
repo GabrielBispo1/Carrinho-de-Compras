@@ -2,7 +2,7 @@ export class PerfilEntity {}
 import { Login } from 'src/login/entity/login.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
-@Entity('perfil') // // com letra maíuscula para o POST
+@Entity('perfil')
 export class Perfil {
   @PrimaryGeneratedColumn()
   id_login: number;

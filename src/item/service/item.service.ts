@@ -9,7 +9,7 @@ export class ItemService {
   constructor(
     @InjectRepository(Item)
     private itemRepository: Repository<Item>,
-  ) { }
+  ) {}
 
   async findAll(): Promise<Item[]> {
     return await this.itemRepository.find({ relations: ['produto', 'ticket'] }); //talvez criar um para cada, tanto produto e ticket

@@ -9,7 +9,7 @@ import {
   OneToMany,
 } from 'typeorm';
 
-@Entity('ticket') // com letra maíuscula para o POST funcionar
+@Entity('ticket')
 export class Ticket {
   @PrimaryGeneratedColumn()
   id_ticket: number;

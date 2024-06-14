@@ -8,12 +8,13 @@ import {
     Put,
     UseGuards,
   } from '@nestjs/common';
-  import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+  import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
   import { CreateTicketDto, UpdateTicketDto } from '../dto/ticket.dto';
   import { TicketService } from '../service/ticket.service';
   
   @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @Controller('ticket')
   @ApiTags('ticket')
   export class TicketController {

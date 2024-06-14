@@ -8,7 +8,7 @@ import {
     Put,
     UseGuards,
   } from '@nestjs/common';
-  import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+  import { ApiOperation, ApiResponse, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
   import { CreateLoginDto, UpdateLoginDto } from '../dto/login.dto';
   import { LoginService } from '../service/login.service';
@@ -18,6 +18,8 @@ import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
   export class LoginController {
     constructor(private readonly loginService: LoginService) {}
     @Get()
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @ApiOperation({ summary: 'Selecionar todos os usuários registrados' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     async findAll(): Promise<any[]> {
@@ -25,6 +27,8 @@ import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
     }
   
     @Get(':id')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @ApiOperation({ summary: 'Selecionar um usuário registrado' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     async findOne(@Param('id') id: number): Promise<any> {
@@ -39,6 +43,8 @@ import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
     }
   
     @Put(':id')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @ApiOperation({ summary: 'Atualizar um usuário registrado' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     async update(
@@ -49,6 +55,8 @@ import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
     }
   
     @Delete(':id')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @ApiOperation({ summary: 'Deletar um registro de usuário' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
     async delete(@Param('id') id: number): Promise<void> {

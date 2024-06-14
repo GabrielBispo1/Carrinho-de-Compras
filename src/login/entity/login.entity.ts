@@ -3,7 +3,7 @@ import { Perfil } from 'src/perfil/entity/perfil.entity';
 import { Ticket } from 'src/ticket/entity/ticket.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany} from 'typeorm';
 
-@Entity('login') //// com letra maíuscula para o POST funcionar
+@Entity('login')
 export class Login {
     @PrimaryGeneratedColumn()
     id_login: number;

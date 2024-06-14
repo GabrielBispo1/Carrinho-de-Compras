@@ -7,9 +7,19 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Projeto API')
-    .setDescription('API para gerenciamento do projeto')
-    .setVersion('1.0')
+    .setTitle('Carrinho-De-Compras')
+    .setDescription('Aplicação para correlação entre documentos')
+    .setVersion('1.1')
+    .addBearerAuth(
+      {
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'Authorization',
+      description: 'Enter JWT token',
+      in: 'header',
+    }
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

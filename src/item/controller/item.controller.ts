@@ -8,12 +8,13 @@ import {
     Put,
     UseGuards,
   } from '@nestjs/common';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard.strategy';
   import { CreateItemDto, UpdateItemDto } from '../dto/item.dto';
   import { ItemService } from '../service/item.service';
 
   @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @Controller('item')
   @ApiTags('item')
   export class ItemController {
